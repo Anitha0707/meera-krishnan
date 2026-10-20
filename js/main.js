@@ -14,7 +14,12 @@ if (burger && menu) {
     menu.classList.remove('open'); burger.classList.remove('open');
   }));
 }
-
+// Highlight current page in the menu
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav ul a').forEach(a => {
+  const href = (a.getAttribute('href') || '').split('#')[0].split('/').pop() || 'index.html';
+  if (href === currentPage) a.classList.add('active');
+});
 // Scroll reveal
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
   es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -79,3 +84,4 @@ if (waBtn) {
   waBtn.addEventListener('click', e => { e.preventDefault(); menu.classList.toggle('open'); });
   document.addEventListener('click', e => { if (!e.target.closest('.float')) menu.classList.remove('open'); });
 }
+

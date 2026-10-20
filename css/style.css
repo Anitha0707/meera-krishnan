@@ -328,3 +328,12 @@ footer .brand-logo{height:46px}
     transition: background 0.2s ease, color 0.2s ease;
 }
 
+.nav ul a {
+  color: #ffffff;
+}
+.nav ul a.active {
+  background: #1e73be;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 8px 14px;
+}
